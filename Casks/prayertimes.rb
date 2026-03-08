@@ -18,6 +18,9 @@ cask "prayertimes" do
     system_command "/usr/bin/xattr",
                    args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/PrayerTimes.app"],
                    sudo: false
+    system_command "/usr/bin/open",
+                   args: ["#{appdir}/PrayerTimes.app"],
+                   sudo: false
   end
 
   uninstall quit: "com.abd3lraouf.PrayerTimes"
