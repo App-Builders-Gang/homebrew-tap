@@ -1,21 +1,21 @@
 cask "prayertimes" do
-  version "2.3.0"
-  sha256 "28439f45535bf275c23c20b81889c2ba7f2f1ef50933e4822a1433a608bb5805"
+  version "2.3.1"
+  sha256 "4a728871db6a5ca9c940763e122fef83f6bae988b5a29de3433c1caec3fe7dbd"
 
   url "https://github.com/abd3lraouf/PrayerTimes/releases/download/v#{version}/PrayerTimes-#{version}.dmg"
   name "PrayerTimes"
-  desc "macOS menu bar app for Islamic prayer times with Hijri calendar"
+  desc "Menu bar app for Islamic prayer times with Hijri calendar"
   homepage "https://github.com/abd3lraouf/PrayerTimes"
-
-  app "PrayerTimes.app"
-  uninstall quit: "com.abd3lraouf.PrayerTimes"
-
-  zap trash: [
-    "~/Library/Preferences/com.abd3lraouf.PrayerTimes.plist",
-  ]
 
   livecheck do
     url :url
     strategy :github_latest
   end
+
+  app "PrayerTimes.app"
+
+  uninstall quit: "com.abd3lraouf.PrayerTimes"
+
+  zap trash: "~/Library/Preferences/com.abd3lraouf.PrayerTimes.plist"
 end
+
