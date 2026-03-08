@@ -27,9 +27,9 @@ cask "prayertimes" do
             login_item: "PrayerTimes"
 
   uninstall_postflight do
-    # Reset location permission so macOS re-prompts on next install
+    # Reset all permissions (location, notifications, etc.) so macOS re-prompts on next install
     system_command "/usr/bin/tccutil",
-                   args: ["reset", "LocationServices", "com.abd3lraouf.PrayerTimes"],
+                   args: ["reset", "All", "com.abd3lraouf.PrayerTimes"],
                    sudo: false
     # Flush cfprefsd cached preferences domain
     system_command "/usr/bin/defaults",
