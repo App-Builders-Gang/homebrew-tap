@@ -27,10 +27,6 @@ cask "prayertimes" do
             login_item: "PrayerTimes"
 
   uninstall_postflight do
-    # Remove all scheduled notifications (prayer times, fasting alerts, events)
-    system_command "/usr/bin/osascript",
-                   args: ["-e", 'tell application id "com.apple.notificationcenterui" to remove every notification of application id "com.abd3lraouf.PrayerTimes"'],
-                   sudo: false
     # Flush cfprefsd cached preferences domain
     system_command "/usr/bin/defaults",
                    args: ["delete", "com.abd3lraouf.PrayerTimes"],
