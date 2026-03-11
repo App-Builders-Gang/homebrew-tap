@@ -1,6 +1,6 @@
 cask "prayertimes" do
-  version "2.8.0"
-  sha256 "67cfc952885b62fbfc7a5cd1d8e0896652d3cb40627fbef18f943240063c9b60"
+  version "2.8.1"
+  sha256 "237474e9dda3223404117b30742cd464a4afd786871adfec63b674e3b6b5deae"
 
   url "https://github.com/abd3lraouf/PrayerTimes/releases/download/v#{version}/PrayerTimes-#{version}.dmg"
   name "PrayerTimes"
