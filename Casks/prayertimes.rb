@@ -1,11 +1,11 @@
 cask "prayertimes" do
-  version "2.9.0"
-  sha256 "8fb24d4e797120de34dd1fadfc3a6d23a2bb4f872935fc9526fed3ff30e8e6dc"
+  version "1.0.0"
+  sha256 :no_check
 
-  url "https://github.com/abd3lraouf/PrayerTimes/releases/download/v#{version}/PrayerTimes-#{version}.dmg"
+  url "https://github.com/App-Builders-Gang/PrayerTimes/releases/download/v#{version}/PrayerTimes-#{version}.dmg"
   name "PrayerTimes"
   desc "Menu bar app for Islamic prayer times with Hijri calendar"
-  homepage "https://github.com/abd3lraouf/PrayerTimes"
+  homepage "https://github.com/App-Builders-Gang/PrayerTimes"
 
   livecheck do
     url :url
@@ -26,26 +26,26 @@ cask "prayertimes" do
   uninstall_preflight do
     # Reset all permissions (location, notifications, etc.) while app is still registered
     system_command "/usr/bin/tccutil",
-                   args: ["reset", "All", "com.abd3lraouf.PrayerTimes"],
+                   args: ["reset", "All", "dev.abd3lraouf.PrayerTimes"],
                    sudo: false
   end
 
-  uninstall quit:       "com.abd3lraouf.PrayerTimes",
+  uninstall quit:       "dev.abd3lraouf.PrayerTimes",
             login_item: "PrayerTimes"
 
   uninstall_postflight do
     # Flush cfprefsd cached preferences domain
     system_command "/usr/bin/defaults",
-                   args: ["delete", "com.abd3lraouf.PrayerTimes"],
+                   args: ["delete", "dev.abd3lraouf.PrayerTimes"],
                    sudo: false
   end
 
   zap trash: [
-    "~/Library/Containers/com.abd3lraouf.PrayerTimes",
-    "~/Library/Preferences/com.abd3lraouf.PrayerTimes.plist",
-    "~/Library/Saved Application State/com.abd3lraouf.PrayerTimes.savedState",
-    "~/Library/HTTPStorages/com.abd3lraouf.PrayerTimes",
-    "~/Library/Caches/com.abd3lraouf.PrayerTimes",
+    "~/Library/Containers/dev.abd3lraouf.PrayerTimes",
+    "~/Library/Preferences/dev.abd3lraouf.PrayerTimes.plist",
+    "~/Library/Saved Application State/dev.abd3lraouf.PrayerTimes.savedState",
+    "~/Library/HTTPStorages/dev.abd3lraouf.PrayerTimes",
+    "~/Library/Caches/dev.abd3lraouf.PrayerTimes",
   ]
 end
 
